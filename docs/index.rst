@@ -1,0 +1,5 @@
+====================
+collective.ClamAV
+====================
+
+User documentation
