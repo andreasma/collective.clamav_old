@@ -1,5 +1,4 @@
-from plone.app.registry.browser.controlpanel import RegistryEditForm
-from plone.app.registry.browser.controlpanel import ControlPanelFormWrapper
+from plone.app.registry.browser import controlpanel
 
 from plone.z3cform import layout
 
@@ -81,9 +80,10 @@ class ClamAVControlPanelAdapter(SchemaAdapterBase):
 
 
 
-class ClamAVControlPanelForm(RegistryEditForm):
-    schema_prefix = "ClamAV5"
-    label = u'ClamaAV Plone 5 Settings'
+class ClamAVControlPanelForm(controlpanel.RegistryEditForm):
+    schema= IAVScannerSettings
+    label = _(u'ClamAV Plone Settings')
+    description = _(u"""""")
 
     def updateFields(self):
             super(ClamAVControlPanelForm, self).updateFields()
@@ -93,5 +93,5 @@ class ClamAVControlPanelForm(RegistryEditForm):
 
 
 
-class ClamAVControlPanelView(ControlPanelFormWrapper):
+class ClamAVControlPanelView(controlpanel.ControlPanelFormWrapper):
     form = ClamAVControlPanelForm
