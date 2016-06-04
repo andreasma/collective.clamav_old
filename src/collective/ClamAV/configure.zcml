@@ -33,4 +33,16 @@
       factory=".setuphandlers.HiddenProfiles"
       name="collective.ClamAV-hiddenprofiles" />
 
+  <utility factory=".scanner.ClamAVScanner" />
+
+
+  <adapter
+      name="collective.ClamAV.file"
+      factory=".schema.VirusFreeFileModifier" />
+
+  <adapter
+     name="collective.ClamAV.image"
+     factory=".schema.VirusFreeImageModifier" />
+
+
 </configure>
