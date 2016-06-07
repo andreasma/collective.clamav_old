@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-"""Installer for the collective.ClamAV package."""
+"""Installer for the collective.clamav package."""
 
 from setuptools import find_packages
 from setuptools import setup
@@ -13,9 +13,9 @@ long_description = '\n\n'.join([
 
 
 setup(
-    name='collective.ClamAV',
+    name='collective.clamav',
     version='1.0a1',
-    description="A product providing ClamAV antivirus integration for Plone AT and Dexterity content types",
+    description="A product providing clamav antivirus integration for Plone AT and Dexterity content types",
     long_description=long_description,
     # Get more from https://pypi.python.org/pypi?%3Aaction=list_classifiers
     classifiers=[
@@ -30,7 +30,7 @@ setup(
     keywords='Python Plone',
     author='Andreas Mantke',
     author_email='maand@gmx.de',
-    url='https://pypi.python.org/pypi/collective.ClamAV',
+    url='https://pypi.python.org/pypi/collective.clamav',
     license='GPL version 2',
     packages=find_packages('src', exclude=['ez_setup']),
     namespace_packages=['collective'],

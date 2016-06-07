@@ -2,13 +2,13 @@
   <object
          name="portal_controlpanel"
          xmlns:i18n="http://xml.zope.org/namespaces/i18n"
-         i18n:domain="collective.ClamAV"
+         i18n:domain="collective.clamav"
          purge="False">
 
          <configlet
-           title="ClamAV"
+           title="Clamav"
            action_id="clamav"
-           appId="collective.ClamAV"
+           appId="collective.clamav"
            category="Products"
            condition_expr=""
            url_expr="string:${portal_url}/@@clamav_settings_controlpanel"

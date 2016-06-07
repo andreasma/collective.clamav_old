@@ -5,7 +5,7 @@ from zope.publisher.interfaces.browser import IDefaultBrowserLayer
 from zope.interface import Interface
 from zope import schema
 from zope.schema.vocabulary import SimpleVocabulary, SimpleTerm
-from collective.ClamAV import _
+from collective.clamav import _
 
 
 class ICollectiveClamavLayer(IDefaultBrowserLayer):
@@ -20,7 +20,7 @@ clamdConnectionType = SimpleVocabulary(
 
 
 class IAVScannerSettings(Interface):
-    """ Schema for the ClamAV settings
+    """ Schema for the clamav settings
     """
     clamav_connection = schema.Choice(
         title=_(u"Connection type to clamd"),

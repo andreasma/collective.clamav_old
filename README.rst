@@ -3,10 +3,10 @@
    This text does not appear on pypi or github. It is a comment.
 
 ==============================================================================
-collective.ClamAV
+collective.clamav
 ==============================================================================
 
-A product providing ClamAV antivirus integration for Plone sites with AT and Dexterity content types.
+A product providing clamav antivirus integration for Plone sites with AT and Dexterity content types.
 It does that by defining a validator which could be used with any content
 type that uses File, Image or Named field(s). The open-source `Clam Antivirus` is
 supported which is available for all platforms.
@@ -17,10 +17,10 @@ Usage
 --------
 
 - To start, you need to have ``clamd`` running on some host accessible by your
-instances. ``collective.ClamAV`` supports either UNIX socket connections or
+instances. ``collective.clamav`` supports either UNIX socket connections or
 remote connections.
 
-- Install collective.ClamAV and setup the host & port or the path to the
+- Install collective.clamav and setup the host & port or the path to the
 ``clamd`` socket in the control panel (default is a network connection to
 ``clamd`` listening on *localhost* at port 3310). By default *Files* and
 *Images* are going to be checked for viruses when added or updated.
@@ -77,14 +77,14 @@ This product has been translated into
 Installation
 ------------
 
-Install collective.ClamAV by adding it to your buildout::
+Install collective.clamav by adding it to your buildout::
 
     [buildout]
 
     ...
 
     eggs =
-        collective.ClamAV
+        collective.clamav
 
 
 and then running ``bin/buildout``
@@ -93,8 +93,8 @@ and then running ``bin/buildout``
 Contribute
 ----------
 
-- Issue Tracker: https://github.com/andreasma/collective.ClamAV/issues
-- Source Code: https://github.com/andreasma/collective.ClamAV
+- Issue Tracker: https://github.com/andreasma/collective.clamav/issues
+- Source Code: https://github.com/andreasma/collective.clamav
 - Documentation: in the docs folder
 
 

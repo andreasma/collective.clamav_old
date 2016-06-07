@@ -2,7 +2,7 @@ import clamd
 
 from zope.interface import implements
 
-from collective.ClamAV.interfaces import IAVScanner
+from collective.clamav.interfaces import IAVScanner
 
 from six import BytesIO
 
@@ -28,7 +28,7 @@ def _make_clamd(type, **kwargs):
         raise ScanError('Invalid call')
 
 
-class ClamAVScanner(object):
+class clamavScanner(object):
     """
     """
     implements(IAVScanner)

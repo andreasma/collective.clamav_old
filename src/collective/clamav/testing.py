@@ -7,7 +7,7 @@ from plone.app.testing import IntegrationTesting
 from plone.app.testing import PloneSandboxLayer
 from plone.testing import z2
 
-import collective.ClamAV
+import collective.clamav
 
 from plone.app.testing import PLONE_FIXTURE
 from plone.app.testing import applyProfile
@@ -17,8 +17,8 @@ from zope.component import getGlobalSiteManager
 from zope.configuration import xmlconfig
 from zope.interface import implements
 
-from collective.ClamAV.interfaces import IAVScanner
-from collective.ClamAV.scanner import ScanError
+from collective.clamav.interfaces import IAVScanner
+from collective.clamav.scanner import ScanError
 
 
 
@@ -30,10 +30,10 @@ class CollectiveClamavLayer(PloneSandboxLayer):
         # Load any other ZCML that is required for your tests.
         # The z3c.autoinclude feature is disabled in the Plone fixture base
         # layer.
-        self.loadZCML(package=collective.ClamAV)
+        self.loadZCML(package=collective.clamav)
 
     def setUpPloneSite(self, portal):
-        applyProfile(portal, 'collective.ClamAV:default')
+        applyProfile(portal, 'collective.clamav:default')
 
 
 COLLECTIVE_CLAMAV_FIXTURE = CollectiveClamavLayer()
@@ -92,12 +92,12 @@ class AVFixture(PloneSandboxLayer):
     defaultBases = (PLONE_FIXTURE, )
 
     def setUpZope(self, app, configurationContext):
-        import collective.ClamAV
-        xmlconfig.file('configure.zcml', collective.ClamAV,
+        import collective.clamav
+        xmlconfig.file('configure.zcml', collective.clamav,
                        context=configurationContext)
 
     def setUpPloneSite(self, portal):
-        applyProfile(portal, 'collective.ClamAV:default')
+        applyProfile(portal, 'collective.clamav:default')
         setRoles(portal, TEST_USER_ID, ['Manager'])
         portal.invokeFactory('Folder', 'virus-folder')
         setRoles(portal, TEST_USER_ID, ['Member'])

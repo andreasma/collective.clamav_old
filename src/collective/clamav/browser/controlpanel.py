@@ -2,7 +2,7 @@ from plone.app.registry.browser import controlpanel
 
 from plone.z3cform import layout
 
-from collective.ClamAV import _
+from collective.clamav import _
 from zope.interface import Interface
 from zope import schema
 from zope.schema.vocabulary import SimpleVocabulary, SimpleTerm
@@ -14,21 +14,21 @@ from zope.component import adapts
 from zope.interface import implements
 
 
-from collective.ClamAV import _
-from collective.ClamAV.interfaces import IAVScannerSettings
+from collective.clamav import _
+from collective.clamav.interfaces import IAVScannerSettings
 
 
 
 
 
-class ClamAVControlPanelAdapter(SchemaAdapterBase):
+class ClamavControlPanelAdapter(SchemaAdapterBase):
 
     adapts(IPloneSiteRoot)
     implements(IAVScannerSettings)
 
 
     def __init__(self, context):
-        super(ClamAVControlPanelAdapter, self).__init__(context)
+        super(clamavControlPanelAdapter, self).__init__(context)
         properties = getToolByName(context, 'portal_properties')
         self.context = properties.clamav_properties
 
@@ -80,18 +80,18 @@ class ClamAVControlPanelAdapter(SchemaAdapterBase):
 
 
 
-class ClamAVControlPanelForm(controlpanel.RegistryEditForm):
+class ClamavControlPanelForm(controlpanel.RegistryEditForm):
     schema= IAVScannerSettings
-    label = _(u'ClamAV Plone Settings')
+    label = _(u'Clamav Plone Settings')
     description = _(u"""""")
 
     def updateFields(self):
-            super(ClamAVControlPanelForm, self).updateFields()
+            super(ClamavControlPanelForm, self).updateFields()
 
     def updateWidgets(self):
-            super(ClamAVControlPanelForm, self).updateWidgets()
+            super(ClamavControlPanelForm, self).updateWidgets()
 
 
 
-class ClamAVControlPanelView(controlpanel.ControlPanelFormWrapper):
-    form = ClamAVControlPanelForm
+class ClamavControlPanelView(controlpanel.ControlPanelFormWrapper):
+    form = ClamavControlPanelForm

@@ -1,5 +1,5 @@
 ====================
-collective.ClamAV
+collective.clamav
 ====================
 
 User documentation

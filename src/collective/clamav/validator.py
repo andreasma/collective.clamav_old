@@ -6,10 +6,10 @@ from Products.CMFCore.utils import getToolByName
 from Products.validation.interfaces.IValidator import IValidator
 from zope.component import getUtility
 from zope.interface import implements, Invalid
-from collective.ClamAV.interfaces import IAVScanner
-from collective.ClamAV.scanner import ScanError
+from collective.clamav.interfaces import IAVScanner
+from collective.clamav.scanner import ScanError
 
-logger = logging.getLogger('collective.ClamAV')
+logger = logging.getLogger('collective.clamav')
 
 
 def _scanBuffer(buffer):
@@ -38,7 +38,7 @@ def _scanBuffer(buffer):
     return result
 
 
-class ClamAVValidator:
+class clamavValidator:
     """Archetypes validator to confirm a file upload is virus-free."""
 
     implements(IValidator)
@@ -88,11 +88,11 @@ except ImportError:
     pass
 else:
 
-    class Z3CFormClamAVValidator(NamedFileWidgetValidator):
+    class Z3CFormclamavValidator(NamedFileWidgetValidator):
         """z3c.form validator to confirm a file upload is virus-free."""
 
         def validate(self, value):
-            super(Z3CFormClamAVValidator, self).validate(value)
+            super(Z3CFormclamavValidator, self).validate(value)
 
             if getattr(value, '_validate_isVirusFree', False) or value is None:
                 # validation is called multiple times for the same file upload
@@ -116,4 +116,4 @@ else:
                 value._validate_isVirusFree = True
 
 
-    validator.WidgetValidatorDiscriminators(Z3CFormClamAVValidator, field=INamedField, widget=INamedFileWidget)
+    validator.WidgetValidatorDiscriminators(Z3CFormclamavValidator, field=INamedField, widget=INamedFileWidget)
