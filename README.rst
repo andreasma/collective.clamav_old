@@ -6,12 +6,51 @@
 collective.ClamAV
 ==============================================================================
 
-A product providing ClamAV antivirus integration for Plone AT and Dexterity content types
+A product providing ClamAV antivirus integration for Plone sites with AT and Dexterity content types.
+It does that by defining a validator which could be used with any content
+type that uses File, Image or Named field(s). The open-source `Clam Antivirus` is
+supported which is available for all platforms.
 
-Features
+
+
+Usage
 --------
 
--
+- To start, you need to have ``clamd`` running on some host accessible by your
+instances. ``collective.ClamAV`` supports either UNIX socket connections or
+remote connections.
+
+- Install collective.ClamAV and setup the host & port or the path to the
+``clamd`` socket in the control panel (default is a network connection to
+``clamd`` listening on *localhost* at port 3310). By default *Files* and
+*Images* are going to be checked for viruses when added or updated.
+
+
+Adding anti-virus protection to non-ATFile based content
+--------------------------------------------------------
+
+If you want to add anti-virus protection to your custom AT content types
+add the *isVirusFree* validator to your FileField(s). For instance:
+
+::
+
+      FileField('file',
+        validators = (('isNonEmptyFile', V_REQUIRED),
+                      ('isVirusFree', V_REQUIRED),),
+        widget = FileWidget(label=u'File'),
+      )
+
+::
+
+If you create custom Dexterity content types add only the necessary import statement to the
+module and all plone.namedfile fields were automatically scaned:
+
+::
+
+from Products.validation import V_REQUIRED)
+
+::
+
 
 
 Examples
@@ -57,6 +96,20 @@ Contribute
 - Issue Tracker: https://github.com/andreasma/collective.ClamAV/issues
 - Source Code: https://github.com/andreasma/collective.ClamAV
 - Documentation: in the docs folder
+
+
+Credits
+-------
+
+
+Some code was shamelessly borrowed from `pyClamd` and collective.ATClamAV:
+
+-  Clam Antivirus: http://www.clamav.net
+-  github: https://github.com/ggozad/collective.ATClamAV
+-  pyClamd: http://xael.org/norman/python/pyclamd
+-  github: https://github.com/collective.ATClamAV
+-  github: https://github.com/davisagli/collective.ATClamAV
+
 
 
 Support
