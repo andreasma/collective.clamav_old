@@ -5,8 +5,6 @@ from plone.z3cform import layout
 from collective.clamav import _
 from zope.interface import Interface
 from zope import schema
-from zope.schema.vocabulary import SimpleVocabulary, SimpleTerm
-from zope.schema.interfaces import IContextSourceBinder
 from Products.CMFCore.utils import getToolByName
 from Products.CMFDefault.formlib.schema import SchemaAdapterBase
 from Products.CMFPlone.interfaces import IPloneSiteRoot
