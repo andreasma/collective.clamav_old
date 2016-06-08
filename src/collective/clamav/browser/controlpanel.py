@@ -1,10 +1,5 @@
 from plone.app.registry.browser import controlpanel
-
-from plone.z3cform import layout
-
 from collective.clamav import _
-from zope.interface import Interface
-from zope import schema
 from Products.CMFCore.utils import getToolByName
 from Products.CMFDefault.formlib.schema import SchemaAdapterBase
 from Products.CMFPlone.interfaces import IPloneSiteRoot
