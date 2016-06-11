@@ -43,6 +43,7 @@ setup(
         'setuptools',
         'z3c.jbot',
         'plone.app.registry',
+        'clamd',
     ],
     extras_require={
         'test': [
