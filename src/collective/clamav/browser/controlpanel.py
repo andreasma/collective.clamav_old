@@ -1,27 +1,21 @@
+# -*- coding: utf-8 -*-
 from plone.app.registry.browser import controlpanel
 from collective.clamav import _
 from Products.CMFCore.utils import getToolByName
-from Products.CMFDefault.formlib.schema import SchemaAdapterBase
+
 from Products.CMFPlone.interfaces import IPloneSiteRoot
 from zope.component import adapts
 from zope.interface import implements
-
-
-from collective.clamav import _
 from collective.clamav.interfaces import IAVScannerSettings
 
 
-
-
-
-class ClamavControlPanelAdapter(SchemaAdapterBase):
+class ClamavControlPanelAdapter(object):
 
     adapts(IPloneSiteRoot)
     implements(IAVScannerSettings)
 
-
     def __init__(self, context):
-        super(clamavControlPanelAdapter, self).__init__(context)
+        super(ClamavControlPanelAdapter, self).__init__(context)
         properties = getToolByName(context, 'portal_properties')
         self.context = properties.clamav_properties
 
@@ -71,10 +65,8 @@ class ClamavControlPanelAdapter(SchemaAdapterBase):
     clamav_timeout = property(get_clamav_timeout, set_clamav_timeout)
 
 
-
-
 class ClamavControlPanelForm(controlpanel.RegistryEditForm):
-    schema= IAVScannerSettings
+    schema = IAVScannerSettings
     label = _(u'Clamav Plone Settings')
     description = _(u"""""")
 
@@ -83,7 +75,6 @@ class ClamavControlPanelForm(controlpanel.RegistryEditForm):
 
     def updateWidgets(self):
             super(ClamavControlPanelForm, self).updateWidgets()
-
 
 
 class ClamavControlPanelView(controlpanel.ControlPanelFormWrapper):

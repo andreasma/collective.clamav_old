@@ -10,7 +10,6 @@ from plone.testing import z2
 import collective.clamav
 
 from plone.app.testing import PLONE_FIXTURE
-from plone.app.testing import applyProfile
 from plone.app.testing import TEST_USER_ID
 from plone.app.testing import setRoles
 from zope.component import getGlobalSiteManager
@@ -18,8 +17,6 @@ from zope.configuration import xmlconfig
 from zope.interface import implements
 
 from collective.clamav.interfaces import IAVScanner
-from collective.clamav.scanner import ScanError
-
 
 
 class CollectiveClamavLayer(PloneSandboxLayer):

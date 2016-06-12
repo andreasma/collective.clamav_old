@@ -38,12 +38,12 @@ setup(
     include_package_data=True,
     zip_safe=False,
     install_requires=[
+        'clamd',
         'plone.api',
         'Products.GenericSetup>=1.8.2',
         'setuptools',
         'z3c.jbot',
         'plone.app.registry',
-        'clamd',
     ],
     extras_require={
         'test': [
